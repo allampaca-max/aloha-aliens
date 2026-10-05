@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#102b28">
+  <meta name="description" content="선크림소녀와 알파카의 하와이 집 지키기. 둘만의 작은 덱 빌딩 카드게임.">
+  <title>알로하, 외계인! · Aloha, Aliens!</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'%3E%3Crect rx='18' width='80' height='80' fill='%23102b28'/%3E%3Ctext y='59' x='9' font-size='56'%3E🌺%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+  <script defer src="art.js"></script>
+  <script defer src="engine.js"></script>
+  <script defer src="game.js"></script>
+</head>
+<body>
+  <div class="game-shell">
+    <header class="topbar">
+      <a class="brand" href="./" aria-label="알로하 외계인 홈"><span class="brand-icon" aria-hidden="true">✳</span><span>알로하, 외계인!<small>ALOHA, ALIENS!</small></span></a>
+      <div class="expedition"><span class="expedition-icon" aria-hidden="true">⌖</span><div>하와이 원정대<small>선크림소녀 & 알파카</small></div></div>
+      <div class="top-actions"><span class="prototype-label">CHAPTER 01</span><button class="icon-button" id="sound-button" title="효과음 켜기" aria-label="효과음 켜기" aria-pressed="false"></button><button class="icon-button" id="help-button" title="플레이 방법" aria-label="플레이 방법">?</button></div>
+    </header>
+
+    <main>
+      <section class="battlefield" aria-label="마노아 전투">
+        <div id="landscape" class="landscape" aria-hidden="true"></div>
+        <div class="scene-shade" aria-hidden="true"></div>
+        <div class="encounter"><div class="eyebrow"><span></span> FIRST ENCOUNTER</div><h1>마노아의 불청객</h1><p>여기는 우리 집인데요?</p></div>
+        <div class="turn-badge"><span class="turn-dot"></span><span id="turn-label">1턴 · 내 차례</span></div>
+        <div class="location-sign" aria-hidden="true"><span>MANOA</span><small>HOME SWEET HOME</small></div>
+        <div class="combatants">
+          <div class="party" id="party"></div>
+          <div class="versus" aria-hidden="true"><span>VS</span><i></i></div>
+          <div class="enemy-party" id="enemy-party"></div>
+        </div>
+        <div class="scene-bottom"><span><i class="live-dot"></i> HAWAIʻI · MĀNOA</span><span>집 지키기 작전 <b>01</b></span></div>
+        <div id="fx-layer" class="fx-layer" aria-hidden="true"></div>
+      </section>
+
+      <section class="tabletop" aria-label="카드와 전투 조작">
+        <div class="table-topline"><div class="phase-caption"><span class="tiny-sun" aria-hidden="true">☀</span><span id="phase-title">우리의 차례</span><span class="phase-divider"></span><span id="instruction">카드를 골라 불청객을 쫓아내세요.</span></div><button class="text-button" id="log-button"><span aria-hidden="true">≡</span> 전투 기록</button></div>
+        <div class="hand-zone">
+          <aside class="energy-panel"><div class="energy-orb" id="energy-orb"><span id="energy-count">3</span><small>/ 3</small></div><strong>에너지</strong><small>매 턴 충전</small><div class="energy-pips" id="energy-pips" aria-hidden="true"></div></aside>
+          <div class="hand" id="hand" aria-label="손에 든 카드"></div>
+          <aside class="end-panel"><button id="end-turn" class="end-turn">턴 종료 <span aria-hidden="true">→</span></button><small id="end-note">남은 카드는 버려집니다</small><button id="cancel-card" class="cancel-card" hidden>선택 취소 <span>Esc</span></button></aside>
+        </div>
+        <div class="table-footer"><button class="pile-button" id="draw-button"><span class="pile-icon" aria-hidden="true">▱</span>뽑을 카드 <b id="draw-count">10</b></button><span class="footer-tip" id="footer-tip">작은 섬, 큰 용기. 그리고 아주 강한 선크림.</span><button class="pile-button" id="discard-button">버린 카드 <b id="discard-count">0</b><span class="pile-icon" aria-hidden="true">▱</span></button></div>
+      </section>
+    </main>
+    <footer class="site-footer"><span>A LITTLE ADVENTURE FOR TWO <span aria-hidden="true">♡</span></span><button id="restart-button">처음부터 다시</button><span>PROTOTYPE 0.1</span></footer>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <dialog id="info-dialog" class="info-dialog"><button class="dialog-close" id="close-info" aria-label="닫기">×</button><div id="dialog-content"></div></dialog>
+  <dialog id="result-dialog" class="result-dialog"><div class="result-flower" id="result-icon" aria-hidden="true">✳</div><div class="eyebrow" id="result-eyebrow">MISSION COMPLETE</div><h2 id="result-title">오늘도 우리 집은 평화롭다!</h2><p id="result-copy"></p><div class="result-stats" id="result-stats"></div><button class="end-turn" id="play-again">한 판 더! <span aria-hidden="true">↻</span></button><button class="text-button" id="close-result">전투 화면 보기</button></dialog>
+</body>
+</html>
